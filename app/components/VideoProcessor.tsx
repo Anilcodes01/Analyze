@@ -107,7 +107,7 @@ export default function VideoProcessor() {
         });
       }, 500);
 
-      const response = await axios.post('/api/analyze', {
+     const response = await axios.post('/api/python/analyze', {
         videoUrl,
         expression: selectedExpression,
       }, {
