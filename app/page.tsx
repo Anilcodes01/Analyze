@@ -1,4 +1,5 @@
 // src/app/page.tsx
+'use client'
 import VideoProcessor from "./components/VideoProcessor";
 
 export default function Home() {
