@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/genai": "^1.29.0",
     "axios": "^1.13.2",
     "cloudinary": "^2.8.0",
     "ffmpeg-static": "^5.2.0",

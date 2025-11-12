@@ -3,18 +3,18 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    console.log('Proxy Request Body:', body);  // Log input
+    console.log('Proxy Request Body:', body);
 
-    const response = await fetch('http://localhost:5001/api/analyze', {
+    // For deploy, route to Python via Vercel (no localhost)
+    const response = await fetch(`${request.headers.get('x-forwarded-proto') || 'http'}://${request.headers.get('host')}/api/analyze.py`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
-    console.log('Python Response Status:', response.status);  // Log status
-
+    console.log('Python Response Status:', response.status);
     const text = await response.text();
-    console.log('Raw Python Response Body:', text);  // FIXED: Log raw body before parse
+    console.log('Raw Python Response Body:', text);
 
     if (!response.ok) {
       throw new Error(`Python API: ${response.status} - ${text}`);
