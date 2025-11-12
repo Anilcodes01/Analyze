@@ -1,12 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/analyze",
-      "dest": "/api/analyze.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
+      "source": "/api/analyze",
+      "destination": "/api/analyze.py"
     }
   ]
 }
