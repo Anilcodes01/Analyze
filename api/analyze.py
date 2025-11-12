@@ -52,7 +52,7 @@ print("CLOUD_NAME:", os.environ.get('CLOUDINARY_CLOUD_NAME'))
 print("API_KEY:", os.environ.get('CLOUDINARY_API_KEY')[:5] + "..." if os.environ.get('CLOUDINARY_API_KEY') else "MISSING")
 print("API_SECRET:", os.environ.get('CLOUDINARY_API_SECRET')[:5] + "..." if os.environ.get('CLOUDINARY_API_SECRET') else "MISSING")
 
-@app.route('/api/analyze', methods=['POST'])
+@app.route('/', methods=['POST'])
 def analyze():
     print("Request received!")
     try:
