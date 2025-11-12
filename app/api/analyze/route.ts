@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     console.log('Proxy Request Body:', body);
 
     // For deploy, route to Python via Vercel (no localhost)
-    const response = await fetch(`${request.headers.get('x-forwarded-proto') || 'http'}://${request.headers.get('host')}/api/analyze.py`, {
+    const response = await fetch(`${request.headers.get('x-forwarded-proto') || 'http'}://${request.headers.get('host')}/api/analyze`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
